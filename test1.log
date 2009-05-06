@@ -1,0 +1,111 @@
+
+ lake.c, 29 June 1999, Pete R. Jemian
+ SAS data desmearing using the iterative technique of JA Lake.
+ J.A. Lake; ACTA CRYST 23 (1967) 191-194.
+
+What is the input data file name? <Quit> <> ==> What is the output data file? <> ==> What is the slit length (x-axis units)? <1> ==> Extrapolation forms to avoid truncation-error.
+   1 = flat background, I(q) = B
+   2 = linear, I(q) = b + q * m
+   3 = power law, I(q) = b * q^m
+   4 = Porod law, I(q) = Cp + Bkg / q^4
+Which form? <1> ==> What X to begin evaluating extrapolation (x-axis units)? <1> ==> How many iteration(s)? (10000 = infinite) <10000> ==>  Weighting methods for iterative corrections:
+ Correction = weight * (MeasuredI - SmearedI)
+   #1) weight = 1.0
+   #2) weight = CorrectedI / SmearedI
+   #3) weight = 2*SQRT(ChiSqr(0) / ChiSqr(i))
+Which method? <2> ==> Input file: test.smr
+Number of points read: 250
+Output file: test1.dsm
+Slit length: 0.08 (x-axis units)
+Final form approx. will begin at: 0.08 (x-axis units)
+Final form approximation: flat background, I(q) = B
+Number of iterations: 1
+Iterative weighting: fast
+
+ Smearing to get first approximation...
+      constant background fit: I = 38.3526
+-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/
+ Iteration #1 of 1 iterations
+Applying the iterative correction ...
+Examining scatter to calculate the errors ...
+Smearing again ...
+      constant background fit: I = 38.5401
+-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/|\-/
+ Residuals plot for iteration #1
+row:    min=-205.011   step=0.0920291   max=1.44535
+column: min=1    max=249
+ --------------------------------------------------------------- 
+|                                                  O            |
+|=========================================OOOOOOOOOOOOOOOOOOOOOO|
+|O                                       OO                     |
+|O                                      O                       |
+|OO                                    OO                       |
+|                          OO         OO                        |
+|                      OOOOO         OO                         |
+|                   OOOO            OO                          |
+| O             OOOOO              OO                           |
+|  OOO   OOOOOOOO                 O                             |
+|  OOOOOOO                       OO                             |
+|                                O                              |
+|                               O                               |
+|                               O                               |
+|                              O                                |
+|                             OO                                |
+|                             O                                 |
+|                            OO                                 |
+|                            O                                  |
+|                           OO                                  |
+ --------------------------------------------------------------- 
+ChiSqr = 1.36153e+06 for #250 points
+Saving data in file: test1.dsm
+Plot of log(desmeared intensity) vs. q ...
+row:    min=0.000371484   step=330.73   max=0.224119
+column: min=3.56297   step=1.45788   max=16.5956
+ --------------------------------------------------------------------------- 
+|O                                                                          |
+|O                                                                          |
+|O                                                                          |
+|O                                                                          |
+|O                                                                          |
+|O                                                                          |
+|O                                                                          |
+|O                                                                          |
+| O                                                                         |
+| O                                                                         |
+| O                                                                         |
+| OO                                                                        |
+|  O                                                                        |
+|  O                                                                        |
+|  OO                                                                       |
+|   OO                                                                      |
+|    O                                                                      |
+|     OO                                                                    |
+|      OOO                                                                  |
+|        OOOOOOOOOOOOOOO OOOO OOOO OOOO OOOO OOOO OOOO OOOO OOOO OOOO OOOO O|
+ --------------------------------------------------------------------------- 
+Same, but now log-log ...
+row:    min=-7.898   step=11.5581   max=-1.49558
+column: min=3.56297   step=1.45788   max=16.5956
+ --------------------------------------------------------------------------- 
+|O                                                                          |
+|OOOOOOOO                                                                   |
+|       OOOOO                                                               |
+|           OOOO                                                            |
+|               OOO                                                         |
+|                  OOO                                                      |
+|                    OOOO                                                   |
+|                        OO                                                 |
+|                         OOO                                               |
+|                            OO                                             |
+|                             OOO                                           |
+|                               OOO                                         |
+|                                 OOO                                       |
+|                                   OOO                                     |
+|                                     OO                                    |
+|                                      OOO                                  |
+|                                         OO                                |
+|                                           OOO                             |
+|                                              OOO                          |
+|                                                OOOOOOOOOOOOOOOOOOOOOOOOOOO|
+ --------------------------------------------------------------------------- 
+What is the input data file name? <Quit> <> ==> 

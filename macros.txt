@@ -1,0 +1,386 @@
+#define _ALLOCA_H 1
+#define alloca(size) __builtin_alloca (size)
+#define __ASMNAME2(prefix, cname) __STRING (prefix) cname
+#define __ASMNAME(cname) __ASMNAME2 (__USER_LABEL_PREFIX__, cname)
+#define __attribute_format_arg__(x) __attribute__ ((__format_arg__ (x)))
+#define __attribute_format_strfmon__(a, b)
+#define __attribute_malloc__ __attribute__ ((__malloc__))
+#define __attribute_noinline__
+#define __attribute_pure__ __attribute__ ((__pure__))
+#define __attribute_used__ __attribute__ ((__unused__))
+#define __BEGIN_DECLS
+#define __BIG_ENDIAN 4321
+#define BIG_ENDIAN __BIG_ENDIAN
+#define _BITS_PTHREADTYPES_H 1
+#define _BITS_TYPES_H 1
+#define _BITS_WCHAR_H 1
+#define __BIT_TYPES_DEFINED__ 1
+#define __blkcnt_t_defined
+#define __bounded
+#define _BSD_SIZE_T_
+#define _BSD_SOURCE 1
+#define BUFSIZ _IO_BUFSIZ
+#define BYTE_ORDER __BYTE_ORDER
+#define __BYTE_ORDER __LITTLE_ENDIAN
+#define __clockid_t_defined 1
+#define __COMPAR_FN_T
+#define __CONCAT(x, y) x ## y
+#define __daddr_t_defined
+#define __defined_schedparam 1
+#define __dev_t_defined
+#define DMAX(a, b) (dmaxarg1=(a),dmaxarg2=(b),(dmaxarg1) > (dmaxarg2) ? (dmaxarg1) : (dmaxarg2))
+#define DMIN(a, b) (dminarg1=(a),dminarg2=(b),(dminarg1) < (dminarg2) ? (dminarg1) : (dminarg2))
+#define DOMAIN 1
+#define DSQR(a) ((dsqrarg=(a)) == 0.0 ? 0.0 : dsqrarg*dsqrarg)
+#define __ELF__ 1
+#define __END_DECLS
+#define _ENDIAN_H 1
+#define EOF (-1)
+#define EXIT_FAILURE 1
+#define EXIT_SUCCESS 0
+#define FD_CLR(fd, fdsetp) __FD_CLR (fd, fdsetp)
+#define __FD_CLR(fd, fdsp) __asm__ __volatile__ ("btrl %1,%0" : "=m" (__FDS_BITS (fdsp)[__FDELT (fd)]) : "r" (((int) (fd)) % __NFDBITS) : "cc","memory")
+#define __FDELT(d) ((d) / __NFDBITS)
+#define FD_ISSET(fd, fdsetp) __FD_ISSET (fd, fdsetp)
+#define __FD_ISSET(fd, fdsp) (__extension__ ({register char __result; __asm__ __volatile__ ("btl %1,%2 ; setcb %b0" : "=q" (__result) : "r" (((int) (fd)) % __NFDBITS), "m" (__FDS_BITS (fdsp)[__FDELT (fd)]) : "cc"); __result; }))
+#define __FDMASK(d) ((__fd_mask) 1 << ((d) % __NFDBITS))
+#define __FDS_BITS(set) ((set)->__fds_bits)
+#define FD_SET(fd, fdsetp) __FD_SET (fd, fdsetp)
+#define __FD_SET(fd, fdsp) __asm__ __volatile__ ("btsl %1,%0" : "=m" (__FDS_BITS (fdsp)[__FDELT (fd)]) : "r" (((int) (fd)) % __NFDBITS) : "cc","memory")
+#define __FD_SETSIZE 1024
+#define FD_SETSIZE __FD_SETSIZE
+#define FD_ZERO(fdsetp) __FD_ZERO (fdsetp)
+#define __FD_ZERO(fdsp) do { int __d0, __d1; __asm__ __volatile__ ("cld; rep; stosl" : "=c" (__d0), "=D" (__d1) : "a" (0), "0" (sizeof (fd_set) / sizeof (__fd_mask)), "1" (&__FDS_BITS (fdsp)[0]) : "memory"); } while (0)
+#define _FEATURES_H 1
+#define ____FILE_defined 1
+#define __FILE_defined 1
+#define FILENAME_MAX 4096
+#define __flexarr [0]
+#define __FLOAT_WORD_ORDER __BYTE_ORDER
+#define FMAX(a, b) (maxarg1=(a),maxarg2=(b),(maxarg1) > (maxarg2) ? (maxarg1) : (maxarg2))
+#define FMIN(a, b) (minarg1=(a),minarg2=(b),(minarg1) < (minarg2) ? (minarg1) : (minarg2))
+#define FOPEN_MAX 16
+#define __fsblkcnt_t_defined
+#define __fsfilcnt_t_defined
+#define _G_ARGS(ARGLIST) ARGLIST
+#define _G_BUFSIZ 8192
+#define _GCC_SIZE_T
+#define _GCC_WCHAR_T
+#define _G_config_h 1
+#define _GCONV_H 1
+#define getc(_fp) _IO_getc (_fp)
+#define GetIt(x, x1, y1, x2, y2) (y1 + (y2-y1) * (x-x1) / (x2-x1))
+#define _G_FSTAT64(fd, buf) __fxstat64 (_STAT_VER, fd, buf)
+#define _G_HAVE_ATEXIT 1
+#define _G_HAVE_BOOL 1
+#define _G_HAVE_IO_FILE_OPEN 1
+#define _G_HAVE_IO_GETLINE_INFO 1
+#define _G_HAVE_LONG_DOUBLE_IO 1
+#define _G_HAVE_MMAP 1
+#define _G_HAVE_PRINTF_FP 1
+#define _G_HAVE_ST_BLKSIZE defined (_STATBUF_ST_BLKSIZE)
+#define _G_HAVE_SYS_CDEFS 1
+#define _G_HAVE_SYS_WAIT 1
+#define __gid_t_defined
+#define _G_IO_IO_FILE_VERSION 0x20001
+#define __GLIBC__ 2
+#define __GLIBC_HAVE_LONG_LONG 1
+#define __GLIBC_MINOR__ 2
+#define __GLIBC_PREREQ(maj, min) ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= ((maj) << 16) + (min))
+#define _G_LSEEK64 __lseek64
+#define _G_MMAP64 __mmap64
+#define _G_NAMES_HAVE_UNDERSCORE 0
+#define _G_NEED_STDARG_H 1
+#define __GNUC__ 2
+#define __GNUC_MINOR__ 96
+#define __GNUC_PATCHLEVEL__ 0
+#define __GNUC_PREREQ(maj, min) ((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))
+#define __GNUC_VA_LIST
+#define __GNU_LIBRARY__ 6
+#define _G_off64_t __off64_t
+#define _G_off_t __off_t
+#define _G_OPEN64 __open64
+#define _G_pid_t __pid_t
+#define _G_size_t size_t
+#define _G_ssize_t __ssize_t
+#define _G_stat64 stat64
+#define _G_uid_t __uid_t
+#define _G_USING_THUNKS 1
+#define _G_va_list __gnuc_va_list
+#define _G_VTABLE_LABEL_HAS_LENGTH 1
+#define _G_VTABLE_LABEL_PREFIX_ID __vt_
+#define _G_VTABLE_LABEL_PREFIX "__vt_"
+#define _G_wchar_t wchar_t
+#define _G_wint_t wint_t
+#define __HAVE_BUILTIN_SETJMP__ 1
+#define __HAVE_COLUMN
+#define HUGE 3.40282347e+38F
+#define HUGE_VAL (__extension__ 0x1.0p2047)
+#define __i386 1
+#define __i386__ 1
+#define i386 1
+#define __id_t_defined
+#define IMAX(a, b) (imaxarg1=(a),imaxarg2=(b),(imaxarg1) > (imaxarg2) ? (imaxarg1) : (imaxarg2))
+#define IMIN(a, b) (iminarg1=(a),iminarg2=(b),(iminarg1) < (iminarg2) ? (iminarg1) : (iminarg2))
+#define InfItr (10000)
+#define __ino_t_defined
+#define __int8_t_defined
+#define __intN_t(N, MODE) typedef int int ## N ## _t __attribute__ ((__mode__ (MODE)))
+#define ___int_size_t_h
+#define ___int_wchar_t_h
+#define __INT_WCHAR_T_H
+#define _IO_BAD_SEEN 0x4000
+#define _IO_BOOLALPHA 0200000
+#define _IO_BUFSIZ _G_BUFSIZ
+#define _IO_cleanup_region_end(_Doit)
+#define _IO_cleanup_region_start(_fct, _fp)
+#define _IO_CURRENTLY_PUTTING 0x800
+#define _IO_DEC 020
+#define _IO_DELETE_DONT_CLOSE 0x40
+#define _IO_DONT_CLOSE 0100000
+#define _IO_EOF_SEEN 0x10
+#define _IO_ERR_SEEN 0x20
+#define _IOFBF 0
+#define _IO_feof_unlocked(__fp) (((__fp)->_flags & _IO_EOF_SEEN) != 0)
+#define _IO_ferror_unlocked(__fp) (((__fp)->_flags & _IO_ERR_SEEN) != 0)
+#define _IO_file_flags _flags
+#define _IO_FIXED 010000
+#define _IO_flockfile(_fp)
+#define _IO_fpos64_t _G_fpos64_t
+#define _IO_fpos_t _G_fpos_t
+#define _IO_ftrylockfile(_fp)
+#define _IO_funlockfile(_fp)
+#define _IO_getc_unlocked(_fp) ((_fp)->_IO_read_ptr >= (_fp)->_IO_read_end ? __uflow (_fp) : *(unsigned char *) (_fp)->_IO_read_ptr++)
+#define _IO_getwc_unlocked(_fp) ((_fp)->_wide_data->_IO_read_ptr >= (_fp)->_wide_data->_IO_read_end ? __wuflow (_fp) : (_IO_wint_t) *(_fp)->_wide_data->_IO_read_ptr++)
+#define _IO_HAVE_ST_BLKSIZE _G_HAVE_ST_BLKSIZE
+#define _IO_HAVE_SYS_WAIT _G_HAVE_SYS_WAIT
+#define _IO_HEX 0100
+#define _IO_iconv_t _G_iconv_t
+#define _IO_IN_BACKUP 0x100
+#define _IO_INTERNAL 010
+#define _IO_IS_APPENDING 0x1000
+#define _IO_IS_FILEBUF 0x2000
+#define _IOLBF 1
+#define _IO_LEFT 02
+#define _IO_LINE_BUF 0x200
+#define _IO_LINKED 0x80
+#define _IO_MAGIC 0xFBAD0000
+#define _IO_MAGIC_MASK 0xFFFF0000
+#define _IONBF 2
+#define _IO_NO_READS 4
+#define _IO_NO_WRITES 8
+#define _IO_OCT 040
+#define _IO_off64_t _G_off64_t
+#define _IO_off_t _G_off_t
+#define _IO_peekc(_fp) _IO_peekc_unlocked (_fp)
+#define _IO_peekc_unlocked(_fp) ((_fp)->_IO_read_ptr >= (_fp)->_IO_read_end && __underflow (_fp) == EOF ? EOF : *(unsigned char *) (_fp)->_IO_read_ptr)
+#define _IO_PENDING_OUTPUT_COUNT(_fp) ((_fp)->_IO_write_ptr - (_fp)->_IO_write_base)
+#define _IO_pid_t _G_pid_t
+#define _IO_pos_t _G_fpos_t
+#define _IO_putc_unlocked(_ch, _fp) (((_fp)->_IO_write_ptr >= (_fp)->_IO_write_end) ? __overflow (_fp, (unsigned char) (_ch)) : (unsigned char) (*(_fp)->_IO_write_ptr++ = (_ch)))
+#define _IO_putwc_unlocked(_wch, _fp) ((_fp)->_wide_data->_IO_write_ptr >= (_fp)->_wide_data->_IO_write_end ? __woverflow (_fp, _wch) : (_IO_wint_t) (*(_fp)->_wide_data->_IO_write_ptr++ = (_wch)))
+#define _IO_RIGHT 04
+#define _IOS_APPEND 8
+#define _IOS_ATEND 4
+#define _IOS_BIN 128
+#define _IO_SCIENTIFIC 04000
+#define _IO_SHOWBASE 0200
+#define _IO_SHOWPOINT 0400
+#define _IO_SHOWPOS 02000
+#define _IOS_INPUT 1
+#define _IO_size_t _G_size_t
+#define _IO_SKIPWS 01
+#define _IOS_NOCREATE 32
+#define _IOS_NOREPLACE 64
+#define _IOS_OUTPUT 2
+#define _IO_ssize_t _G_ssize_t
+#define _IO_stderr ((_IO_FILE*)(&_IO_2_1_stderr_))
+#define _IO_stdin ((_IO_FILE*)(&_IO_2_1_stdin_))
+#define _IO_STDIO 040000
+#define _IO_STDIO_H
+#define _IO_stdout ((_IO_FILE*)(&_IO_2_1_stdout_))
+#define _IOS_TRUNC 16
+#define _IO_TIED_PUT_GET 0x400
+#define _IO_uid_t _G_uid_t
+#define _IO_UNBUFFERED 2
+#define _IO_UNIFIED_JUMPTABLES 1
+#define _IO_UNITBUF 020000
+#define _IO_UPPERCASE 01000
+#define _IO_USER_BUF 1
+#define _IO_USER_LOCK 0x8000
+#define _IO_va_list __gnuc_va_list
+#define _IO_wint_t _G_wint_t
+#define __KERNEL_STRICT_NAMES
+#define __key_t_defined
+#define LakeChi2 (3)
+#define LakeFast (2)
+#define LakeUnit (1)
+#define L_ctermid 9
+#define L_cuserid 9
+#define __ldiv_t_defined 1
+#define __linux 1
+#define __linux__ 1
+#define linux 1
+#define __LITTLE_ENDIAN 1234
+#define LITTLE_ENDIAN __LITTLE_ENDIAN
+#define LMAX(a, b) (lmaxarg1=(a),lmaxarg2=(b),(lmaxarg1) > (lmaxarg2) ? (lmaxarg1) : (lmaxarg2))
+#define LMIN(a, b) (lminarg1=(a),lminarg2=(b),(lminarg1) < (lminarg2) ? (lminarg1) : (lminarg2))
+#define __long_double_t long double
+#define __LONG_LONG_PAIR(HI, LO) LO, HI
+#define L_tmpnam 20
+#define M_1_PI 0.31830988618379067154
+#define M_2_PI 0.63661977236758134308
+#define M_2_SQRTPI 1.12837916709551257390
+#define major(dev) ((int)(((dev) >> 8) & 0xff))
+#define makedev(major, minor) ((((unsigned int) (major)) << 8) | ((unsigned int) (minor)))
+#define __malloc_and_calloc_defined
+#define __MATHCALLX(function, suffix, args, attrib) __MATHDECLX (_Mdouble_,function,suffix, args, attrib)
+#define __MATHDECLX(type, function, suffix, args, attrib) __MATHDECL_1(type, function,suffix, args) __attribute__ (attrib); __MATHDECL_1(type, __CONCAT(__,function),suffix, args) __attribute__ (attrib)
+#define _MATH_H 1
+#define MB_CUR_MAX (__ctype_get_mb_cur_max ())
+#define __mbstate_t_defined 1
+#define M_E 2.7182818284590452354
+#define _Mfloat_ float
+#define minor(dev) ((int)((dev) & 0xff))
+#define M_LN10 2.30258509299404568402
+#define M_LN2 0.69314718055994530942
+#define M_LOG10E 0.43429448190325182765
+#define M_LOG2E 1.4426950408889634074
+#define _Mlong_double_ long double
+#define __mode_t_defined
+#define M_PI_2 1.57079632679489661923
+#define M_PI 3.14159265358979323846
+#define M_PI_4 0.78539816339744830962
+#define M_SQRT1_2 0.70710678118654752440
+#define M_SQRT2 1.41421356237309504880
+#define __need_clockid_t
+#define __NFDBITS (8 * sizeof (__fd_mask))
+#define NFDBITS __NFDBITS
+#define __nlink_t_defined
+#define __NO_INLINE__ 1
+#define _NR_UTILS_H_
+#define NULL ((void *)0)
+#define __off_t_defined
+#define _OLD_STDIO_MAGIC 0xFABC0000
+#define OVERFLOW 3
+#define _PARAMS(protos) __P(protos)
+#define __P(args) args __THROW
+#define __PDP_ENDIAN 3412
+#define PDP_ENDIAN __PDP_ENDIAN
+#define __pid_t_defined
+#define PLOSS 6
+#define __PMT(args) args
+#define _POSIX_C_SOURCE 199506L
+#define _POSIX_SOURCE 1
+#define _PTHREAD_DESCR_DEFINED
+#define P_tmpdir "/tmp"
+#define __PTRDIFF_TYPE__ int
+#define __ptr_t void *
+#define __ptrvalue
+#define putc(_ch, _fp) _IO_putc (_ch, _fp)
+#define RAND_MAX 2147483647
+#define __REDIRECT(name, proto, alias) name proto __asm__ (__ASMNAME (#alias))
+#define __REGISTER_PREFIX__
+#define __restrict_arr
+#define SEEK_CUR 1
+#define SEEK_END 2
+#define SEEK_SET 0
+#define SIGN(a, b) ((b) >= 0.0 ? fabs(a) : -fabs(a))
+#define _SIGSET_H_types 1
+#define _SIGSET_NWORDS (1024 / (8 * sizeof (unsigned long int)))
+#define __sigset_t_defined
+#define SING 2
+#define __size_t
+#define __size_t__
+#define __SIZE_T
+#define _SIZE_T
+#define _SIZE_T_
+#define _SIZET_
+#define _SIZE_T_DEFINED
+#define _SIZE_T_DEFINED_
+#define __SIZE_TYPE__ unsigned int
+#define SQR(a) ((sqrarg=(a)) == 0.0 ? 0.0 : sqrarg*sqrarg)
+#define __ssize_t_defined
+#define __STDC_IEC_559__ 1
+#define __STDC_IEC_559_COMPLEX__ 1
+#define __STDC_ISO_10646__ 200009L
+#define stderr stderr
+#define stdin stdin
+#define _STDIO_H 1
+#define _STDIO_USES_IOSTREAM
+#define _STDLIB_H 1
+#define stdout stdout
+#define _STRING_H 1
+#define __STRING(x) #x
+#define __strtol_internal_defined 1
+#define __strtoll_internal_defined 1
+#define __strtoul_internal_defined 1
+#define __strtoull_internal_defined 1
+#define _STRUCT_TIMEVAL 1
+#define __stub_chflags
+#define __stub_fattach
+#define __stub_fchflags
+#define __stub_fdetach
+#define __stub_fexecve
+#define __stub_gtty
+#define __stub___kernel_cosl
+#define __stub___kernel_sinl
+#define __stub___kernel_tanl
+#define __stub_posix_fadvise
+#define __stub_posix_fadvise64
+#define __stub_revoke
+#define __stub_setlogin
+#define __stub_sigreturn
+#define __stub_sstk
+#define __stub_stty
+#define __suseconds_t_defined
+#define _SVID_SOURCE 1
+#define _SYS_CDEFS_H 1
+#define _SYS_SELECT_H 1
+#define _SYS_SIZE_T_H
+#define _SYS_SYSMACROS_H 1
+#define _SYS_TYPES_H 1
+#define __THROW
+#define __timer_t_defined 1
+#define __timespec_defined 1
+#define __time_t_defined 1
+#define TLOSS 5
+#define TMP_MAX 238328
+#define _T_SIZE
+#define _T_SIZE_
+#define __tune_i386__ 1
+#define _T_WCHAR
+#define _T_WCHAR_
+#define __u_char_defined
+#define __uid_t_defined
+#define __u_intN_t(N, MODE) typedef unsigned int u_int ## N ## _t __attribute__ ((__mode__ (MODE)))
+#define __unbounded
+#define UNDERFLOW 4
+#define __unix 1
+#define __unix__ 1
+#define unix 1
+#define __UNKNOWN_10646_CHAR ((wchar_t) 0xfffd)
+#define __USE_ANSI 1
+#define __USE_BSD 1
+#define __USE_MISC 1
+#define __USE_POSIX 1
+#define __USE_POSIX199309 1
+#define __USE_POSIX199506 1
+#define __USE_POSIX2 1
+#define __USER_LABEL_PREFIX__
+#define __USE_SVID 1
+#define __VERSION__ "2.96 20000731 (Red Hat Linux 7.3 2.96-110)"
+#define VERSION_INFORMATION "lake.c, 18 September 2002"
+#define __WCHAR_MAX (2147483647l)
+#define __WCHAR_MIN (-2147483647l - 1l)
+#define __wchar_t__
+#define __WCHAR_T
+#define _WCHAR_T
+#define _WCHAR_T_
+#define _WCHAR_T_DEFINED
+#define _WCHAR_T_DEFINED_
+#define _WCHAR_T_H
+#define __WCHAR_TYPE__ long int
+#define _WINT_T
+#define __WINT_TYPE__ unsigned int
+#define X_TLOSS 1.41484755040568800000e+16
