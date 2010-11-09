@@ -13,9 +13,10 @@
 SOURCES  = lake.c hunt.c stats.c toolbox.c recipes.c
 OBJECTS  = lake.o hunt.o stats.o toolbox.o recipes.o
 INCLUDES = recipes.h
-TEST_FILES  = xxx.smr xxx.inp xxx.dsm xxx.try 
-TEST_FILES += lake.log test.gnu
-TEST_FILES += work.gnuplot
+TEST_FILES  = xxx.smr xxx.inp xxx.dsm xxx.try
+TEST_FILES  = test_xxx.log
+#TEST_FILES += lake.log test.gnu
+#TEST_FILES += work.gnuplot
 TEST_FILES += plot.ps
 
 ARCHIVE_FILES  = Makefile
@@ -23,6 +24,7 @@ ARCHIVE_FILES += $(SOURCES)
 ARCHIVE_FILES += $(INCLUDES)
 ARCHIVE_FILES += $(TEST_FILES)
 ARCHIVE_FILES += lake
+ARCHIVE_FILES += README
 
 
 CC = gcc
