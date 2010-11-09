@@ -1,23 +1,55 @@
 /*  lake.c  */
-#define VERSION_INFORMATION  "lake.c, 19 September 2002"
+#define VERSION_INFORMATION  "svnid: $ Id: $"
 /*
-    modernized to compile on:
+COMPILE (for UNIX or Linux or Cygwin):
+   make 	     build and compile the program
+   make test	     run a test case as an example
+   more xxx.log      view the test case
+
+
+CITATION
+   Use this reference to cite this code in a publication.
+
+   PhD Thesis, 1990, Northwestern University, 
+   Evanston, IL, USA, Pete R. Jemian.
+   http://jemian.org/pjthesis.pdf
+
+USE
+   These instructions are very limited.
+   Additional help might be available in the Theory chapter
+   of my PhD thesis:
+   http://jemian.org/pjthesis.pdf
+
+   Compile the program as above and run the "lake" executable.
+   No "install" methods are provided.  The Makefile
+   will build "lake" executable as a shared-object.  (Not static).
+
+   Input data will be provided in an ASCII TEXT file
+   as three columns (Q  I  dI) separated by white space.
+   Units must be compatible.  (I and dI must have same units)
+   Q: scattering vector
+   I measured SAS intensity
+   dI estimated uncertainties of I (usually standard deviation)
+   Note that dI MUST be provided and MUST not be zero.
+   
+NOTES
+    revised to compile on:
        Linux gcc
        Solaris Sun Workshop C
        Windows 95/98/NT Metrowerks CodeWarrior
        Macintosh Metrowerks CodeWarrior
        Macintosh Symantec C
     4 February 1994
-    direct translation of LAKE.FOR
-    which would not run correctly under System 7
-    (Some compiler error that would not pass array DC(*)
-    into subroutine SMEAR.)
+       direct translation of LAKE.FOR
+       which would not run correctly under System 7
+       (Some compiler error that would not pass array DC(*)
+       into subroutine SMEAR.)
     2002-Sept-18:
     	users of Windows version report errors associated with file names
 	Probably a bug was edited in.
 
 
-
+HISTORY
     lake.c was derived from the FORTRAN program:
     Lake.FOR  25 May 1991
     ref: J.A. Lake; ACTA CRYST 23 (1967) 191-194.
@@ -32,6 +64,8 @@
         in "Deconvolution with Applications in Spectroscopy."
         Ed. P.A. Jansson.  (see above)
 
+
+PURPOSE
       This program applies the iterative desmearing technique of Lake
         to small-angle scattering data.  The way that the program works
         is that the user selects a file of data (x,y,dy) to be desmeared.
@@ -560,6 +594,7 @@ main ()
     printf (" %s, by Pete R. Jemian\n", VERSION_INFORMATION);
     printf (" This executable was built %s, %s\n\n", __DATE__, __TIME__);
     printf (" SAS data desmearing using the iterative technique of JA Lake.\n");
+    printf (" P.R. Jemian; Ph.D. Thesis (1990) Northwestern University, Evanston, IL, USA.\n\n");
     printf (" J.A. Lake; ACTA CRYST 23 (1967) 191-194.\n\n");
     /*
      * console_options.pause_atexit = 0;
