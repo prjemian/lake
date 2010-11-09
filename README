@@ -25,6 +25,26 @@ USE
    http://jemian.org/pjthesis.pdf
 
    Compile the program as above and run the "lake" executable.
+   Hint:  This command should do it all:    make clean diff
+   Output from "make diff" should be a difference in 
+   when the executable was built.  Such as:
+   ----------------% clip here %----------------
+/bin/rm -f *.o core *%
+gcc    -c -o lake.o lake.c
+gcc    -c -o hunt.o hunt.c
+gcc    -c -o stats.o stats.c
+gcc    -c -o toolbox.o toolbox.c
+gcc    -c -o recipes.o recipes.c
+gcc -o lake lake.o hunt.o stats.o toolbox.o recipes.o -lm
+./lake < xxx.inp > xxx.log
+diff test_xxx.log xxx.log
+3c3
+<  This executable was built Nov  9 2010, 09:55:20
+---
+>  This executable was built Nov  9 2010, 10:01:44
+make: *** [diff] Error 1
+   ----------------% clip here %----------------
+
    No "install" methods are provided.  The Makefile
    will build "lake" executable as a shared-object.  (Not static).
 
