@@ -87,11 +87,12 @@ void Spinner (int i)
  */
 {
     switch (i % 4) {
-        case 1: printf ("%c\r", '-'); break;
-        case 2: printf ("%c\r", '/'); break;
-        case 3: printf ("%c\r", '|'); break;
-        case 0: printf ("%c\r", '\\'); break;
+        case 1: printf ("%c", '-'); break;
+        case 2: printf ("%c", '/'); break;
+        case 3: printf ("%c", '|'); break;
+        case 0: printf ("%c", '\\'); break;
     }
+    printf ("%c", 0x08);   /* backspace */
     fflush(stdout);
 }
 

@@ -4,8 +4,10 @@ svnid: $ Id: $
 
 
 COMPILE (for UNIX or Linux or Cygwin):
-   make 	     build and compile the program
+   make clean	     remove any built object files
+   make 	     compile "lake" executable
    make test	     run a test case as an example
+   make diff	     compare the test case with known example
    more xxx.log      view the test case
 
 

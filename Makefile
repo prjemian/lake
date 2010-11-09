@@ -34,6 +34,9 @@ lake: $(OBJECTS) Makefile
 test: lake
 	./lake < xxx.inp > xxx.log
 
+diff: test
+	diff test_xxx.log xxx.log
+
 all: lake archive
 
 clean:
