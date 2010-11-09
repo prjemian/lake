@@ -1,6 +1,6 @@
 
- svnid: $Id: $, by Pete R. Jemian
- This executable was built Nov  9 2010, 10:08:28
+ svnid: $Id: lake.c 1465 2010-11-09 16:08:49Z jemian $, by Pete R. Jemian
+ This executable was built Nov  9 2010, 10:09:39
 
  SAS data desmearing using the iterative technique of JA Lake.
  P.R. Jemian; Ph.D. Thesis (1990) Northwestern University, Evanston, IL, USA.
