@@ -13,8 +13,8 @@
 SOURCES  = lake.c hunt.c stats.c toolbox.c recipes.c
 OBJECTS  = lake.o hunt.o stats.o toolbox.o recipes.o
 INCLUDES = recipes.h
-TEST_FILES  = xxx.smr xxx.inp xxx.dsm xxx.try
-TEST_FILES  = test_xxx.log
+TEST_FILES  += xxx.smr xxx.inp xxx.dsm
+TEST_FILES  += xxx-ref.log
 #TEST_FILES += lake.log test.gnu
 #TEST_FILES += work.gnuplot
 TEST_FILES += plot.ps
@@ -37,7 +37,7 @@ test: lake
 	./lake < xxx.inp > xxx.log
 
 diff: test
-	diff test_xxx.log xxx.log
+	diff xxx-ref.log xxx.log
 
 all: lake archive
 
