@@ -1,3 +1,15 @@
+
+
+/*
+########### SVN repository information ###################
+# $Date$
+# $Author$
+# $Revision$
+# $URL$
+# $Id$
+########### SVN repository information ###################
+*/
+
 void hunt(float xx[], unsigned long n, float x, unsigned long *jlo)
 {
     unsigned long jm,jhi,inc;

@@ -1,5 +1,16 @@
 /*  lake.c  */
 #define VERSION_INFORMATION  "svnid: $ Id: $"
+
+/*
+########### SVN repository information ###################
+# $Date$
+# $Author$
+# $Revision$
+# $URL$
+# $Id$
+########### SVN repository information ###################
+*/
+
 /*
 COMPILE (for UNIX or Linux or Cygwin):
    make 	     build and compile the program

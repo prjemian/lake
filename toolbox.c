@@ -8,8 +8,19 @@
       so that they may be improved, as needed.
 */
 
+/*
+########### SVN repository information ###################
+# $Date$
+# $Author$
+# $Revision$
+# $URL$
+# $Id$
+########### SVN repository information ###################
+*/
+
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #include "recipes.h"
 
 void AskString (char *question, char *answer)
