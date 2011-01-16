@@ -1,4 +1,6 @@
-
+/** @file
+ *  @brief locate index in xx[] to interpolate at value x
+ */
 
 /*
 ########### SVN repository information ###################
@@ -10,6 +12,14 @@
 ########### SVN repository information ###################
 */
 
+/**
+ * @fn hunt(float xx[], unsigned long n, float x, unsigned long *jlo)
+ * @param xx[]    1-D array to find x
+ * @param n       length of xx[]
+ * @param x       value to lok up
+ * @param *jlo    modified internally by hunt()
+ * @returns *jlo  for xx[*jlo] <= x < x[*jlo+1]
+ */
 void hunt(float xx[], unsigned long n, float x, unsigned long *jlo)
 {
     unsigned long jm,jhi,inc;

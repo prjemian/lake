@@ -1,4 +1,7 @@
-/*  lake.c  */
+/** @file lake.c
+ *  @brief lake-jemian desmearing method
+ */
+
 #define VERSION_INFORMATION  "svnid: $Id$"
 
 /*
@@ -87,6 +90,11 @@ extern long _fcreator;
 #include <string.h>
 
 
+/**
+ * Get information about the desmearing parameters.
+ * This is designed to be independent of wavelength
+ * or radiation-type (i.e. neutrons, X rays, etc.)
+ */
 void GetInf (
     char *InFile,
     char *OutFil,
@@ -96,10 +104,6 @@ void GetInf (
     int MaxItr,
     int *mForm,
     int *LakeForm)
-        /*  Get information about the desmearing parameters.
-         *  This is designed to be independent of wavelength
-         *    or radiation-type (i.e. neutrons, X rays, etc.)
-         */
 {
     InFile[0] = (char) 0;
     AskString ("What is the input data file name? <Quit>", InFile);
@@ -129,11 +133,11 @@ void GetInf (
     AskInt ("Which method?", LakeForm);
 }
 
-void FixErr (int n, double *x, double *y, double *dy, double *z, double *dz)
-/*
+/**
  *  Estimate the error on Z based on data point scatter and
  *  previous error values and smooth that estimate.
  */
+void FixErr (int n, double *x, double *y, double *dy, double *z, double *dz)
 {
     int i, j;
     double slope, intercept, zNew, w1, w2;
@@ -187,11 +191,11 @@ void FixErr (int n, double *x, double *y, double *dy, double *z, double *dz)
     }
 }
 
+/**
+ *  Calculate the constants for an extrapolation fit
+ *  from all the data that satisfy x(i) >= sFinal.
+ */
 void Prep (double *x, double *y, double *dy, int NumPts)
-    /*
-     *  Calculate the constants for an extrapolation fit
-     *  from all the data that satisfy x(i) >= sFinal.
-     */
 {
     double h4;
     int i;
@@ -228,19 +232,19 @@ void Prep (double *x, double *y, double *dy, int NumPts)
     }
 }
 
+/**
+ *  Smear the data of C(q) into S using the slit-length
+ *    weighting function "Plengt" and a power-law extrapolation
+ *    of the data to avoid truncation errors.  Assume that
+ *    Plengt goes to zero for l > lo (the slit length).
+ *  Also assume that the slit length  function is symmetrical
+ *    about l = zero.
+ *  This routine is written so that if "Plengt" is changed
+ *    (for example) to a Gaussian, that no further modification
+ *    is necessary to the integration procedure.  That is,
+ *    this routine will integrate the data out to "lo".
+ */
 void Smear (double *S, int NumPts, double *q, double *C, double *dC)
-    /*
-     *  Smear the data of C(q) into S using the slit-length
-     *    weighting function "Plengt" and a power-law extrapolation
-     *    of the data to avoid truncation errors.  Assume that
-     *    Plengt goes to zero for l > lo (the slit length).
-     *  Also assume that the slit length  function is symmetrical
-     *    about l = zero.
-     *  This routine is written so that if "Plengt" is changed
-     *    (for example) to a Gaussian, that no further modification
-     *    is necessary to the integration procedure.  That is,
-     *    this routine will integrate the data out to "lo".
-     */
 {
     double *x, *w, hLo, hNow, sum, ratio;
     int i, j, k;
@@ -313,28 +317,28 @@ void Smear (double *S, int NumPts, double *q, double *C, double *dC)
 }
 
 
+/**
+ *  Here is the definition of the slit-length weighting function.
+ *    It is defined for a rectangular slit of length 2*sLengt
+ *    and probability 1/(2*sLengt).  It is zero elsewhere.
+ *  It is not necessary to change the limit of the integration
+ *    if the functional form here is changed.  You may, however,
+ *    need to ask the user for more parameters.  Pass these
+ *    around to the various routines through the use of the
+ *    /PrepCm/ COMMON block.
+ */
 double Plengt (double x)
-    /*
-     *  Here is the definition of the slit-length weighting function.
-     *    It is defined for a rectangular slit of length 2*sLengt
-     *    and probability 1/(2*sLengt).  It is zero elsewhere.
-     *  It is not necessary to change the limit of the integration
-     *    if the functional form here is changed.  You may, however,
-     *    need to ask the user for more parameters.  Pass these
-     *    around to the various routines through the use of the
-     *    /PrepCm/ COMMON block.
-     */
 {
     return (fabs(x) > sLengt) ? 0.0 : 0.5 / sLengt;
 }
 
 #define GetIt(x,x1,y1,x2,y2)  (y1 + (y2-y1) * (x-x1) / (x2-x1))
 
+/**
+ *  Determine the "corrected" intensity at u = SQRT (x*x + y*y)
+ *  Note that only positive values of "u" will be searched!
+ */
 double FindIc (double x, double y, int NumPts, double *q, double *C)
-    /*
-     *  Determine the "corrected" intensity at u = SQRT (x*x + y*y)
-     *  Note that only positive values of "u" will be searched!
-     */
 {
     double u, value;
     int iTest, iLo, iHi;
@@ -375,7 +379,9 @@ double FindIc (double x, double y, int NumPts, double *q, double *C)
     return value;
 }
 
-
+/**
+ * Do the work of the Lake method.
+ */
 void DesmearData ()
 {
     double ChiSqr, ChiSq0, weighting;
@@ -509,6 +515,9 @@ void DesmearData ()
     fflush (stdout);
 }
 
+/**
+ * CLI program starts here.
+ */
 main ()
 {
 #ifdef THINK_C

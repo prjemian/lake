@@ -1,9 +1,7 @@
-/*  stats.c
-    4 February 1994
-    Implement a set of statistics registers in the
-      style of a pocket calculator.
-      The routines that are available are:              */
-
+/** @file stats.c
+ *  @brief Implement a set of statistics registers in the
+ *        style of a pocket calculator.
+ */
 
 /*
 ########### SVN repository information ###################

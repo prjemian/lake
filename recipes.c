@@ -1,3 +1,6 @@
+/** @file
+ *  @brief routines adapted from Numerical Recipes
+ */
 
 
 /*

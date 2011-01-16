@@ -1,8 +1,11 @@
-/* toolbox.c
+/** @file toolbox.c
+ *  @brief part of my general mathematical "toolbox"
+ */
+
+/*
 
     Pete R. Jemian, 15 May 1989
-    The routines that follow are part of my general
-      mathematical "toolbox".  Some of them are taken
+    Some of these routines are taken
       (with reference) from book(s) but most, I have
       developed on my own.  They are modular in construction
       so that they may be improved, as needed.
