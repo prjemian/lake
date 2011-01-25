@@ -1,15 +1,12 @@
 /** @file toolbox.c
  *  @brief part of my general mathematical "toolbox"
+ *
+ *  Pete R. Jemian, 15 May 1989.
+ *  Some of these routines are taken
+ *    (with reference) from book(s) but most, I have
+ *    developed on my own.  They are modular in construction
+ *    so that they may be improved, as needed.
  */
-
-/*
-
-    Pete R. Jemian, 15 May 1989
-    Some of these routines are taken
-      (with reference) from book(s) but most, I have
-      developed on my own.  They are modular in construction
-      so that they may be improved, as needed.
-*/
 
 /*
 ########### SVN repository information ###################
@@ -26,6 +23,9 @@
 #include <string.h>
 #include "recipes.h"
 
+/**
+ * request string input from the command line
+ */
 void AskString (char *question, char *answer)
 {
     char reply[256];
@@ -35,6 +35,9 @@ void AskString (char *question, char *answer)
         sscanf (reply, "%s\n", answer);
 }
 
+/**
+ * request a double input from the command line
+ */
 void AskDouble (char *question, double *answer)
 {
     char reply[256];
@@ -48,6 +51,9 @@ void AskDouble (char *question, double *answer)
         sscanf (reply, "%le", answer);
 }
 
+/**
+ * request an integer input from the command line
+ */
 void AskInt (char *question, int *answer)
 {
     char reply[256];
@@ -57,6 +63,9 @@ void AskInt (char *question, int *answer)
         sscanf (reply, "%d", answer);
 }
 
+/**
+ * request yes or no from the command line
+ */
 char AskYesOrNo (char *question, char standard)
 {
     char reply[256];
@@ -83,11 +92,11 @@ char AskYesOrNo (char *question, char standard)
 }
 
 
-void Spinner (int i)
-/*
+/**
  * spins a stick to indicate program is still working
  * call many times
  */
+void Spinner (int i)
 {
     switch (i % 4) {
         case 1: printf ("%c", '-'); break;
@@ -99,6 +108,9 @@ void Spinner (int i)
     fflush(stdout);
 }
 
+/**
+ * Does this line of text contain valid data?
+ */
 static int isDataLine (char *line)
 {
   int isData = 0;
@@ -108,6 +120,10 @@ static int isDataLine (char *line)
   return (isData);
 }
 
+
+/**
+ * read three-column data from a text file
+ */
 void GetDat (
      char *InFile,
      double **x,
@@ -153,6 +169,9 @@ void GetDat (
 #define SAVE_FORMAT "%lg\t%lg\t%lg\n"
 #endif
 
+/**
+ * save three-columns of data to a text file
+ */
 void SavDat (char *OutFil, double *x, double *y, double *dy, int n)
 {
     FILE *path;
@@ -168,6 +187,9 @@ void SavDat (char *OutFil, double *x, double *y, double *dy, int n)
 }
 
 
+/**
+ * swap a and b
+ */
 void Iswap (int *a, int *b)
 {
     int c = *a;
@@ -182,11 +204,13 @@ void Iswap (int *a, int *b)
 #define hBordr = '-';
 #define vBordr = '|';
 
-void Plot (int n, double *x, double *y)
-/*
+/**
+ * low-resolution ASCII text plot
+ *
  * Make a scatter plot on the default display device (UNIT=*).
  * MaxRow and MaxCol correspond to the display dimensions.
  */
+void Plot (int n, double *x, double *y)
 {
     char screen[MaxRow+2][MaxCol+2+1];
     int i, r, c, nRow, nCol;
@@ -245,11 +269,11 @@ void Plot (int n, double *x, double *y)
 
 
 
-void ResPlot (int n, double *x)
-/*
+/**
  *  Draw a plot of the standardized residuals on the screen.
  *  Mark the rows of + and - one standard deviation.
  */
+void ResPlot (int n, double *x)
 {
     char screen[MaxRow+2][MaxCol+2+1];
     int i, r, c, nRow, nCol, mPlus, mMinus, nPack;
@@ -315,13 +339,13 @@ void ResPlot (int n, double *x)
 
 int iLo, iHi;   /* used to bracket the current index in FindIc */
 
-void BSearch (double z, double *x, int NumPts, int *iTest)
-/*
+/**
  *  Search the array "x" for (iLo) <= z < x(iHi)
  *  On exit, iLo and iHi will exactly bracket the datum
  *    and iTest will be the same as iLo.
  *  If z is below [above] the range, iTest = -1 [NumPts+1]. 
  */
+void BSearch (double z, double *x, int NumPts, int *iTest)
 {
     *iTest = -1;                /* assume that z < x[1] and test */
     if (z < x[1]) return;
@@ -346,6 +370,9 @@ void BSearch (double z, double *x, int NumPts, int *iTest)
 }
 
 
+/**
+ * remove stuff from a string
+ */
 void strtrim (char *inStr, char *outStr, char* list)
 {
   char *in = inStr;
