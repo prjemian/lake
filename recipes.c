@@ -2,17 +2,6 @@
  *  @brief routines adapted from Numerical Recipes
  */
 
-
-/*
-########### SVN repository information ###################
-# $Date$
-# $Author$
-# $Revision$
-# $URL$
-# $Id$
-########### SVN repository information ###################
-*/
-
 #if defined(__STDC__) || defined(ANSI) || defined(NRANSI) /* ANSI */
 
 #include <stdio.h>

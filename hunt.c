@@ -2,16 +2,6 @@
  *  @brief locate index in xx[] to interpolate at value x
  */
 
-/*
-########### SVN repository information ###################
-# $Date$
-# $Author$
-# $Revision$
-# $URL$
-# $Id$
-########### SVN repository information ###################
-*/
-
 /**
  * @fn hunt(float xx[], unsigned long n, float x, unsigned long *jlo)
  * @param xx[]    1-D array to find x

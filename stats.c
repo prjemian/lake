@@ -3,16 +3,6 @@
  *        style of a pocket calculator.
  */
 
-/*
-########### SVN repository information ###################
-# $Date$
-# $Author$
-# $Revision$
-# $URL$
-# $Id$
-########### SVN repository information ###################
-*/
-
 void SumClr ();                     /* clear the stats registers */
 void SumAdd (double, double);       /* add an X,Y pair */
 void SumSub (double, double);       /* remove an X,Y pair */

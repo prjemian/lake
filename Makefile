@@ -2,14 +2,6 @@
 #   Target:     lake
 #   Sources:    lake.c recipes.c hunt.c stats.c toolbox.c
 
-########### SVN repository information ###################
-# $Date$
-# $Author$
-# $Revision$
-# $URL$
-# $Id$
-########### SVN repository information ###################
-
 SOURCES  = lake.c hunt.c stats.c toolbox.c recipes.c
 OBJECTS  = lake.o hunt.o stats.o toolbox.o recipes.o
 INCLUDES = recipes.h

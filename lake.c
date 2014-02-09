@@ -5,16 +5,6 @@
 #define VERSION_INFORMATION  "svnid: $Id$"
 
 /*
-########### SVN repository information ###################
-# $Date$
-# $Author$
-# $Revision$
-# $URL$
-# $Id$
-########### SVN repository information ###################
-*/
-
-/*
 See the README for more information.
 
 CITATION

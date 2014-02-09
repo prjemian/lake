@@ -2,16 +2,6 @@
  *  @brief headers for recipes.c
  */
 
-/*
-########### SVN repository information ###################
-# $Date$
-# $Author$
-# $Revision$
-# $URL$
-# $Id$
-########### SVN repository information ###################
-*/
-
 #ifndef _NR_UTILS_H_
 #define _NR_UTILS_H_
 
